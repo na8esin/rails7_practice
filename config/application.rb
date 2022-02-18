@@ -18,5 +18,7 @@ module Rails7
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+
+    config.cache_store = :redis_cache_store, { url: 'redis://localhost:8011/0' }
   end
 end
