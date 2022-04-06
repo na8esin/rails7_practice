@@ -9,4 +9,6 @@ class HomeController < ApplicationController
 
     render plain: 'hello'
   end
+
+  def form_options_helper_select; end
 end
