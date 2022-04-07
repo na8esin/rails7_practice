@@ -11,4 +11,10 @@ class HomeController < ApplicationController
   end
 
   def form_options_helper_select; end
+
+  def sjis; end
+
+  def sjis_post
+    p params
+  end
 end
