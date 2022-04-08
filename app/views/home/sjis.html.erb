@@ -1,6 +1,2 @@
-<form action="/home/sjis_post" accept-charset="Shift_JIS" method="post">
-  <input type="hidden" name="name" value="<%= '木村　太郎'.encode(Encoding::SJIS) %>">
-  <input type="hidden" name="name2" value="田中太郎">
-
-  <input type="submit">
-</form>
+<%= render partial: "sjis_area" %>
+<input type="hidden" name="name" value="<%= '木村　世太郎' %>">

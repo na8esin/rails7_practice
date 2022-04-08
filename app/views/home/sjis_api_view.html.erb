@@ -1,0 +1,49 @@
+<script>
+window.addEventListener('load', (event) => {
+  load()
+});
+
+const load = () => {
+  const button = document.querySelector('.fetch-button')
+  button.addEventListener('click', fetchData)
+  const getHtmlButton = document.querySelector('.get-html')
+  getHtmlButton.addEventListener('click', getHtml)
+}
+
+async function fetchData() {
+  const response = await postData('/home/sjis_api')
+  const name = await response.json()
+
+  console.log(name.result)
+
+  const text = document.querySelector('#name-text')
+  text.value =  name.result
+
+}
+
+async function getHtml() {
+  const response = await postData('/home/sjis_api_html')
+  const htmlText = await response.text()
+
+  console.log(htmlText)
+
+  const gotHtml = document.querySelector('#got-html')
+  gotHtml.insertAdjacentHTML('afterbegin', htmlText)
+}
+
+async function postData(url = '', data = {}) {
+  const response = await fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json; charset=sjis'
+    },
+    redirect: 'follow',
+    body: JSON.stringify(data)
+  })
+  return response
+}
+</script>
+<input type='button' class='fetch-button'><br>
+<input type='text' id="name-text">木村匡<br>
+<input type='button' value="get-html" class='get-html'>
+<div id='got-html'></div>
