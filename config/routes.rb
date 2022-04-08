@@ -9,4 +9,6 @@ Rails.application.routes.draw do
   get '/home/sjis_api_view', to: 'home#sjis_api_view'
   post '/home/sjis_api', to: 'home#sjis_api'
   post '/home/sjis_api_html', to: 'home#sjis_api_html'
+  get '/home/form_accept_charset', to: 'home#form_accept_charset'
+  post '/home/form_accept_charset_post', to: 'home#form_accept_charset_post'
 end

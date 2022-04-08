@@ -1,4 +1,5 @@
-<form action="/home/sjis_post" accept-charset="Shift_JIS" method="post">
+<%# パーシャルをsjisだけにすると大丈夫かの検証 -> 読み込み元でUTF-8があるならだめ %>
+<form action="/home/sjis_post" accept-charset="Shift_JIS" method="post" target="_blank">
   <input type="hidden" name="name" value="<%= '木村　太郎'.encode(Encoding::SJIS) %>">
   <input type="submit">
 </form>

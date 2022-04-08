@@ -29,4 +29,12 @@ class HomeController < ApplicationController
   def sjis_api_html
     render layout: false
   end
+
+  def form_accept_charset; end
+
+  def form_accept_charset_post
+    p params
+
+    render plain: params['first']
+  end
 end
